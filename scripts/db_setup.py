@@ -1,9 +1,17 @@
+import os
+from dotenv import load_dotenv
 from sqlalchemy import create_engine, Column, Integer, String, Float, Date, TIMESTAMP, ForeignKey, MetaData, Table
 from datetime import datetime
 
-#  Database connection configuration
-# Replace username and password with your PostgreSQL credentials if different
-DB_URL = "postgresql://postgres:admin@localhost:5432/livestock_db"
+# Load environment variables from .env if present
+load_dotenv()
+
+# Database connection configuration
+# Prefer `DATABASE_URL` environment variable. If not set, fall back to a local (insecure) default.
+DB_URL = os.getenv('DATABASE_URL') or "postgresql://postgres:admin@localhost:5432/livestock_db"
+
+if os.getenv('DATABASE_URL') is None:
+    print("Warning: `DATABASE_URL` not set — using fallback hardcoded URL. Set `DATABASE_URL` in environment or .env to avoid exposing credentials.")
 
 # Create connection engine
 engine = create_engine(DB_URL, echo=True)
