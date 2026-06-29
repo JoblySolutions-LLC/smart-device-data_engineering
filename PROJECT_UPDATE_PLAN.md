@@ -90,6 +90,18 @@ This example is based on your last update:
 
 ---
 
+## Monday Work Plan
+
+For the next Monday update, focus on these priority items:
+
+- Finalize the ETL schema mapping for livestock telemetry ingestion and verify field-level consistency.
+- Implement incremental data ingestion for time-series telemetry, including partitioned storage and load optimization.
+- Develop and validate data quality checks for sensor anomaly detection and missing-value handling.
+- Review the database setup script under `scripts/db_setup.py` and update documentation for deployment readiness.
+- Prepare the Monday status email using the update template, summarizing last week and planned work.
+
+---
+
 ## GitHub / Code Update Process
 
 When you make changes to the project, follow this process:
